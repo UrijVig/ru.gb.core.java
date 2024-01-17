@@ -6,4 +6,4 @@ RUN mkdir ./out
 
 RUN javac -sourcepath ./src -d out/ src/ru/gb/jcore/Calculator.java 
 
-RUN java -classpath out/ ru.gb.jcore.Calculator 
+RUN javadoc -d docs/ -sourcepath src/ -cp out/ -subpackages ru -private

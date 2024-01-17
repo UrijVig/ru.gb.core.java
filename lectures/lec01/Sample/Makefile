@@ -3,4 +3,4 @@ javac:
 java_run:
 	java -classpath out/ ru.gb.jcore.Calculator
 java_doc:
-	javadoc -d docs/ -sourcepath src/ -cp out/ -subpackages ru
+	javadoc -d docs/ -sourcepath src/ -cp out/ -subpackages ru -private
