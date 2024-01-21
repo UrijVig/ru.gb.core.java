@@ -1,4 +1,4 @@
-### Домашнее задание второго семинара курса java core
+### Домашнее задание второго семинара из курса java core
 
 1. Написать метод, возвращающий количество чётных элементов массива. countEvens([2, 1, 2, 3, 4]) → 3 countEvens([2, 2, 0]) → 3 countEvens([1, 3, 5]) → 0  
 [решение](https://github.com/UrijVig/ru.gb.core.java/blob/main/home_work/hw01/task01/Main.java)
