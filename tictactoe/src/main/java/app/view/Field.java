@@ -2,6 +2,9 @@ package ru.gb.jcore.tictactoe.src.main.java.app.view;
 
 import java.awt.*;
 
+/**
+ * Класс Field представляет игровое поле для игры «Крестики-нолики».
+ */
 public class Field {
 
     private final int FIELD_SIZE;
@@ -16,6 +19,12 @@ public class Field {
     private char[][] map;
     private String gameOverMsg;
 
+    /**
+     * Конструктор класса Field.
+     *
+     * @param field_size Размер игрового поля.
+     * @param cell_size Размер каждой ячейки игрового поля.
+     */
     public Field(int field_size, int cell_size) {
         FIELD_SIZE = field_size;
         CELL_SIZE = cell_size;
@@ -24,6 +33,9 @@ public class Field {
         init();
     }
 
+    /**
+     * Заполняет игровое поле точками
+     */
     public void init() {
         for (int i = 0; i < map.length; i++) {
             for (int j = 0; j < map.length; j++)
@@ -32,26 +44,58 @@ public class Field {
         gameOverMsg = null;
     }
 
+    /**
+     * Метод получение размеров игрового поля
+     *
+     * @return размер игрового поля
+     */
     public int getSize() {
         return FIELD_SIZE;
     }
 
+    /**
+     * Метод возвращающий символ, используемый игроком-человеком
+     *
+     * @return используемый человеком символ
+     */
     public char getHumanDot() {
         return HUMAN_DOT;
     }
 
+    /**
+     * Метод возвращающий символ, используемый исскуственным интелектом
+     *
+     * @return используемый ИИ символ
+     */
     public char getAIDot() {
         return AI_DOT;
     }
 
+    /**
+     * Метод, проверяющий закончилась ли игра
+     *
+     * @return True, если игра окончена, в противном случае — false.
+     */
     public boolean isGameOver() {
         return gameOverMsg != null;
     }
 
+    /**
+     * Метод получения сообщения, указывающего результат игры
+     *
+     * @return сообщение с результатом игры
+     */
     public String getGameOverMsg() {
         return gameOverMsg;
     }
 
+    /**
+     * Метод устанавливающий точку на игровом поле и проверяющий условие выигрыша или ничьей
+     *
+     * @param x Координата X ячейки.
+     * @param y Координата Y ячейки.
+     * @param dot Точка, которую нужно установить на игровом поле.
+     */
     public void setDot(int x, int y, char dot) { // set dot and check fill and win
         map[x][y] = dot;
         if (checkWin(HUMAN_DOT)) gameOverMsg = MSG_HUMAN_WON;
@@ -59,6 +103,11 @@ public class Field {
         else if (isMapFull()) gameOverMsg = MSG_DRAW;
     }
 
+    /**
+     * Метод, проверяющий заполнена ли игровая доска.
+     *
+     * @return True, если игровая доска заполнена; в противном случае - false.
+     */
     boolean isMapFull() {
         for (int i = 0; i < FIELD_SIZE; i++)
             for (int j = 0; j < FIELD_SIZE; j++)
@@ -66,7 +115,12 @@ public class Field {
         return true;
     }
 
-
+    /**
+     * Метод, проверяющий выиграл ли игрок с заданным символом.
+     *
+     * @param dot Символ игрока (человека или ИИ).
+     * @return True, если игрок выиграл; в противном случае - false.
+     */
     boolean checkWin(char dot) {
         for (int i = 0; i < FIELD_SIZE; i++) {
             boolean isHorizontalWin = true;
@@ -96,11 +150,23 @@ public class Field {
 //                (map[2][0] == dot && map[1][1] == dot && map[0][2] == dot);
 //    }
 
+    /**
+     * Метод, проверяющий допустима ли клетка для размещения нового символа.
+     *
+     * @param x Координата x клетки.
+     * @param y Координата y клетки.
+     * @return True, если клетка допустима; в противном случае - false.
+     */
     public boolean isCellValid(int x, int y) {
         if (x < 0 || y < 0 || x > FIELD_SIZE - 1 || y > FIELD_SIZE - 1) return false;
         return map[x][y] == EMPTY_DOT;
     }
 
+    /**
+     * Метод, отображающий игровую доску на экране.
+     *
+     * @param g Объект Graphics2D для рисования игровой доски.
+     */
     public void paint(Graphics2D g) {
         g.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 
