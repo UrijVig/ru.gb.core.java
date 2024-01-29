@@ -8,26 +8,34 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 
+/**
+ * Основной клас программы
+ */
 public class Main {
+    /**
+     * Точка входа в приложение
+     * @param args системный параметр
+     */
     public static void main(String[] args) {
-        ArrayList<Employee> arrayList = getEmployees();
+        ArrayList<Employee> arrayList = getEmployees(); //создание списка сотрудников
         System.out.println(arrayList);
 
-        for (Employee employee : arrayList) {
-            Supervisor.upSalary(45, 5000, employee);
-        }
-        System.out.println(arrayList);
         System.out.println("Средний возраст: " + getMidlAge(arrayList));
         System.out.println("Средний заработок: " + getMidlSalary(arrayList));
         comparator(arrayList.get(0), arrayList.get(1));
         arrayList.add(new Supervisor("Head", "Pet", "Work",
-                new Date(73, Calendar.SEPTEMBER, 16), "89652144589", 45896));
+                new Date(73, Calendar.SEPTEMBER, 16), "89652144589", 45896)); // Добавление руководителя в список сотрудников
         for (Employee employee : arrayList) {
             Supervisor.upSalary(40, 50000, employee);
         }
         System.out.println(arrayList);
     }
 
+    /**
+     * Метод для отображения отношения сотрудников по возрасту
+     * @param first первый стравниваемый сотрудник
+     * @param second второй сравниваемый сотрудник
+     */
     private static void comparator(Employee first, Employee second) {
         int dif = first.compareTo(second);
         if (dif < 0) System.out.println(first
@@ -38,6 +46,11 @@ public class Main {
                     + "\t ровесник \n" + second);
     }
 
+    /**
+     * Метод для подсчёта среднего возраста сотрудников
+     * @param lst список сотрудников
+     * @return средний возраст
+     */
     private static double getMidlAge(ArrayList<Employee> lst) {
         int sumAge = 0;
         for (Employee employee : lst) {
@@ -46,6 +59,11 @@ public class Main {
         return (double) sumAge / lst.size();
     }
 
+    /**
+     * Метод для подсчёта среднего заработка
+     * @param lst список сотрудников
+     * @return средний заработок сотрудников
+     */
     private static double getMidlSalary(ArrayList<Employee> lst) {
         int sumSalary = 0;
         for (Employee employee : lst) {
@@ -54,6 +72,10 @@ public class Main {
         return (double) sumSalary / lst.size();
     }
 
+    /**
+     * Метод для создания списка сотрудников
+     * @return список сотрудников
+     */
     private static ArrayList<Employee> getEmployees() {
         Employee employee1 = new Employee("Serge", "Peterson", "Mark",
                 new Date(89, Calendar.JUNE, 16), "89652144589", "Professor", 45896);
