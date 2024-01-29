@@ -18,9 +18,11 @@ public class Dog extends Animal {
         return height <= this.jumpHeight;
     }
 
-
     public boolean swim(double distance) {
         return distance <= this.sailingDistance;
+    }
+    public String getClassname() {
+        return Dog.class.getSimpleName();
     }
 
 }

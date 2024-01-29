@@ -24,5 +24,8 @@ public class Bird extends Animal {
     public boolean swim(double distance) {
         return distance <= this.sailingDistance;
     }
+    public String getClassname() {
+        return Bird.class.getSimpleName();
+    }
 
 }

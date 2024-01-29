@@ -1,6 +1,5 @@
 package src.main.java.app.model;
 
-import java.util.Date;
 import java.util.Random;
 
 public abstract class Animal {
@@ -33,4 +32,5 @@ public abstract class Animal {
     public double getSailingDistance() {
         return sailingDistance;
     }
+    public abstract String getClassname();
 }
