@@ -66,5 +66,6 @@
     System.out.println("Всего покупок совершено: " + orders.size());
     ```
 
-[Реализация вышеописанного кода](https://github.com/UrijVig/ru.gb.core.java/blob/main/seminars/sem04/shop/src/main/java/app/Main.java)
+[Реализация вышеописанного кода](https://github.com/UrijVig/ru.gb.core.java/blob/main/seminars/sem04/shop/src/main/java/app/Main.java)  
+
 [проект интернет магазина](https://github.com/UrijVig/ru.gb.core.java/tree/main/seminars/sem04/shop)
