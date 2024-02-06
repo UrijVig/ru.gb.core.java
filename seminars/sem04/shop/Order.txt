@@ -1,0 +1,2 @@
+Order{PRODUCT=Product{NAME='Sandwich', price=3456.0}, BUYER=Buyer{FIRSTNAME='Ivan', age=20, number='+234562362565'}, count=4}
+Order{PRODUCT=Product{NAME='Table', price=34574.0}, BUYER=Buyer{FIRSTNAME='Petr', age=30, number='+568856785464'}, count=6}
